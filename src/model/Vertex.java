@@ -24,7 +24,7 @@ public class Vertex implements Comparable<Vertex> {
     }
 
     @Override
-    public boolean equals(final Object other) {
+    public boolean equals(Object other) {
         if (!(other instanceof Vertex)) {
             return false;
         }

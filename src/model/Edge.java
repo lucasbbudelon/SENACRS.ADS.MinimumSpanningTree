@@ -37,6 +37,10 @@ public class Edge implements Comparable<Edge> {
         return weight;
     }
 
+    public boolean containVertex(Vertex vertex) {
+        return vertex.equals(source) || vertex.equals(destiny);
+    }
+
     @Override
     public boolean equals(final Object other) {
         if (!(other instanceof Edge)) {

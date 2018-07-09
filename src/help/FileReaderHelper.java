@@ -5,15 +5,15 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 import model.Edge;
-import model.Tree;
+import model.Graph;
 
 public class FileReaderHelper {
 
-    public static Tree readFile() {
+    public static Graph readFile(String database) {
 
-        try (Scanner file = new Scanner(new FileReader("grafo.txt"))) {
+        try (Scanner file = new Scanner(new FileReader(database))) {
 
-            Tree tree = new Tree();
+            Graph graph = new Graph();
             boolean loadFirtLine = false;
 
             while (file.hasNext()) {
@@ -21,15 +21,15 @@ public class FileReaderHelper {
 
                     if (loadFirtLine) {
                         Edge edge = new Edge(sc.nextInt(), sc.nextInt(), sc.nextInt());
-                        tree.add(edge);
+                        graph.add(edge);
                     } else {
-                        tree.setTotalVertices(sc.nextInt());
-                        tree.setTotalEdges(sc.nextInt());
+                        graph.setTotalVertices(sc.nextInt());
+                        graph.setTotalEdges(sc.nextInt());
                         loadFirtLine = true;
                     }
                 }
             }
-            return tree;
+            return graph;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
